@@ -1,10 +1,17 @@
-# Задание №1
+# Задание №1 (ИСПРАВЛЕНО)
 
-SELECT c.login, COUNT(o."courierId") as order_count
-FROM "Couriers" c 
-LEFT JOIN "Orders" o ON c.id = o."courierId" AND o."inDelivery" = true 
-GROUP BY c.login 
-ORDER BY order_count DESC;
+SELECT 
+    c.login,
+    COUNT(*)
+FROM 
+    "Couriers" AS c
+JOIN 
+    "Orders" AS o ON c.id = o."courierId"
+WHERE 
+    o."inDelivery" = true
+GROUP BY 
+    c.login;
+
 
 # Задание №2
 
